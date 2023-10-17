@@ -4,12 +4,16 @@
 const wordInput = document.getElementById('inputPalindromo');
 const btnPali = document.getElementById('btn-pali');
 btnPali.addEventListener('click', isPalindormo)
+//risultato palindroma?
+const resultPalindroma = document.getElementById('result-palindroma');
+
 // controllare se la parola inserita è palindroma
 function isPalindormo() {
-    resetForm();
+    resetForm(resultPalindroma);
 
     const inputValue = wordInput.value.toLowerCase();
-
+    let bgAlert;
+    let result;
     let reverse = '';
     for (let i = inputValue.length - 1; i >= 0; i--) {
         reverse += inputValue[i];
@@ -17,9 +21,14 @@ function isPalindormo() {
     }
     if (inputValue === reverse) {
         console.log('la parola inserita è  palindroma');
+        result = 'La parola inserita è palindroma';
+        bgAlert= 'alert-success';
     } else {
-        console.log('la parola inserita non è palindroma')
+        console.log('la parola inserita non è palindroma');
+        result = 'La parola inserita NON è palindroma';
+        bgAlert= 'alert-danger';
     }
+    printResult(resultPalindroma, bgAlert, result);
 }
 
 // Pari e dispari
