@@ -6,7 +6,8 @@ const btnPali = document.getElementById('btn-pali');
 btnPali.addEventListener('click', isPalindormo)
 // controllare se la parola inserita è palindroma
 function isPalindormo() {
-    //checkInput(wordInput, )
+    resetForm();
+
     const inputValue = wordInput.value.toLowerCase();
 
     let reverse = '';
@@ -41,7 +42,7 @@ const numInput = document.getElementById('number');//(valore input)
 
 
 function playOddEven() {
-    resetForm();
+    resetForm(resultOddEven);
 
     let oddeven = pariDispari.value;
     console.log(oddeven);
@@ -68,20 +69,20 @@ function playOddEven() {
         result = youLose;
         bgAlert = 'alert-danger';
     }
-    resultOddEven.classList.add(bgAlert);
-    resultOddEven.classList.remove('d-none');
-    resultOddEven.innerHTML = result;
+    printResult(resultOddEven, bgAlert,result);
 }
 
 
 
-function resetForm(){
-    resultOddEven.classList.remove('alert-success');
-    resultOddEven.classList.remove('alert-danger');
-    resultOddEven.classList.add('d-none');
+function resetForm(element){
+    element.classList.remove('alert-success');
+    element.classList.remove('alert-danger');
+    element.classList.add('d-none');
 
 }
 
-function printResult(){
-
+function printResult(element, bgAlert, result){
+    element.classList.add(bgAlert);
+    element.classList.remove('d-none');
+    element.innerHTML = result;
 }
