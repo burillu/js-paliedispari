@@ -14,8 +14,12 @@ function isPalindormo(){
         reverse += inputValue[i];
         
     }
-    console.log(reverse);
-}
+    if (inputValue === reverse){
+    console.log('la parola inserita è  palindroma');
+    } else {
+        console.log('la parola inserita non è palindroma')
+    }
+}   
 
 function checkInput (input, chk){
 
