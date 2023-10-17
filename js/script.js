@@ -48,6 +48,7 @@ function playOddEven() {
     let num = parseInt(numInput.value);
     console.log(num);
     let bgAlert;
+    let result;
     // genera un numero randomico da uno a 5 e sommalo al numero dell'utente
     //sommare i due numeri
     let sum = num + getRndInteger(1, 5);
@@ -55,11 +56,16 @@ function playOddEven() {
     let youWin = 'Complimenti! Hai Vinto!';
     let youLose = ' Mi dispiace, hai perso. Ritenta'
     //dichiarare il vincitore
-    let result= (isEven(sum) && oddeven === 'pari') ? youWin : youLose;
-    console.log(result);
-    if (result == youWin) {
+    // let result= ((isEven(sum) && oddeven === 'pari') || !(isEven(sum) && oddeven === 'dispari')) ? youWin : youLose;
+    // console.log(result);
+    if (isEven(sum) && oddeven === 'pari'){
+        result = youWin;
         bgAlert = 'alert-success';
-    } else if (result == youLose){
+    } else if (!isEven(sum) && oddeven === 'dispari') {
+        result = youWin;
+        bgAlert = 'alert-success';
+    } else {
+        result = youLose;
         bgAlert = 'alert-danger';
     }
     resultOddEven.classList.add(bgAlert);
