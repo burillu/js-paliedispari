@@ -41,7 +41,7 @@ const numInput = document.getElementById('number');//(valore input)
 
 
 function playOddEven() {
-    //resetForm();
+    resetForm();
 
     let oddeven = pariDispari.value;
     console.log(oddeven);
@@ -70,7 +70,9 @@ function playOddEven() {
 
 
 function resetForm(){
-
+    resultOddEven.classList.remove('alert-success');
+    resultOddEven.classList.remove('alert-danger');
+    resultOddEven.classList.add('d-none');
 
 }
 
